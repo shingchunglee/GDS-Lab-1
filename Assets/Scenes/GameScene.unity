@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 37119973}
   - component: {fileID: 37119972}
+  - component: {fileID: 37119974}
   m_Layer: 0
   m_Name: Helicopter
   m_TagString: Untagged
@@ -207,6 +208,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &37119974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37119971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc6840933f364123bc3a18c990b5752, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VELOCITY: 0.1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,7 +282,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -496,6 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d3ee4c2fa3ef4b94ab9e1f27c2581ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  helicopterMovement: {fileID: 37119974}
 --- !u!4 &949532074
 Transform:
   m_ObjectHideFlags: 0
