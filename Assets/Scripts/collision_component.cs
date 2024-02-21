@@ -16,5 +16,9 @@ public class collision_component : MonoBehaviour
         {
             Debug.Log("Collided with soldier");
         }
+        if (other.gameObject.CompareTag("tree"))
+        {
+            Debug.Log("Collided with tree");
+        }
     }
 }
