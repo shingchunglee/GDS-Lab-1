@@ -5,6 +5,9 @@ public class SoldierManager : MonoBehaviour
     [SerializeField]
     private GameManager gameManager;
 
+    [SerializeField]
+    private AudioManager audioManager;
+
     // Start is called before the first frame update
     void Start() { }
 
@@ -15,6 +18,7 @@ public class SoldierManager : MonoBehaviour
     {
         if (gameManager.IncrementSoldiersPickedUp())
         {
+            audioManager.PlayPickUpSound();
             Destroy(gameObject);
         }
     }
