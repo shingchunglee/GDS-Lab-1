@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class collision_component : MonoBehaviour
+public class HelicopterCollisionComponent : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start() { }
@@ -14,15 +12,18 @@ public class collision_component : MonoBehaviour
     {
         if (other.gameObject.CompareTag("soldier"))
         {
-            Debug.Log("Collided with soldier");
+            other.gameObject.GetComponent<SoldierManager>().PickUp();
+            return;
         }
         if (other.gameObject.CompareTag("tree"))
         {
             Debug.Log("Collided with tree");
+            return;
         }
         if (other.gameObject.CompareTag("hospital"))
         {
             Debug.Log("Collided with hospital");
+            return;
         }
     }
 }
