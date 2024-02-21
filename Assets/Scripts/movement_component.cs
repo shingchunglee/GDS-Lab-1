@@ -8,22 +8,16 @@ public class MovementComponent : MonoBehaviour
     private float VELOCITY;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    void Start() { }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    void Update() { }
 
     public void MoveUp()
     {
         gameObject.transform.position += new Vector3(0, VELOCITY, 0);
     }
-    
+
     public void MoveDown()
     {
         gameObject.transform.position += new Vector3(0, -VELOCITY, 0);
@@ -32,7 +26,6 @@ public class MovementComponent : MonoBehaviour
     public void MoveLeft()
     {
         gameObject.transform.position += new Vector3(-VELOCITY, 0, 0);
-        Debug.Log(-VELOCITY);
     }
 
     public void MoveRight()
