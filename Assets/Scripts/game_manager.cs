@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int soldiers_picked_up = 0;
+    public int soldiers_saved = 0;
 
     // Start is called before the first frame update
     void Start() { }
@@ -19,6 +20,13 @@ public class GameManager : MonoBehaviour
             return false;
         }
         soldiers_picked_up++;
+        return true;
+    }
+
+    public bool EmptyHelicopter()
+    {
+        soldiers_saved += soldiers_picked_up;
+        soldiers_picked_up = 0;
         return true;
     }
 }

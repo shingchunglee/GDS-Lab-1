@@ -22,7 +22,7 @@ public class HelicopterCollisionComponent : MonoBehaviour
         }
         if (other.gameObject.CompareTag("hospital"))
         {
-            Debug.Log("Collided with hospital");
+            other.gameObject.GetComponent<HospitalManager>().Dropoff();
             return;
         }
     }
