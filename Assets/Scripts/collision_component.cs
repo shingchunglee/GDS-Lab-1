@@ -20,5 +20,9 @@ public class collision_component : MonoBehaviour
         {
             Debug.Log("Collided with tree");
         }
+        if (other.gameObject.CompareTag("hospital"))
+        {
+            Debug.Log("Collided with hospital");
+        }
     }
 }
