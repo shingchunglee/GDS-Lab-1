@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public int soldiers_picked_up = 0;
     public int soldiers_saved = 0;
 
-    // Start is called before the first frame update
-    void Start() { }
+    [SerializeField]
+    private Text rescued_text;
 
-    // Update is called once per frame
-    void Update() { }
+    // Start is called before the first frame update
+    private void Start()
+    {
+        update_rescued_text();
+    }
 
     public bool IncrementSoldiersPickedUp()
     {
@@ -27,6 +31,12 @@ public class GameManager : MonoBehaviour
     {
         soldiers_saved += soldiers_picked_up;
         soldiers_picked_up = 0;
+        update_rescued_text();
         return true;
+    }
+
+    private void update_rescued_text()
+    {
+        rescued_text.text = "Soldiers Rescued: " + soldiers_saved;
     }
 }
