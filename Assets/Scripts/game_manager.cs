@@ -23,10 +23,23 @@ public class GameManager : MonoBehaviour
         UpdateSoldiersInHelicopterText();
     }
 
+    private void Update()
+    {
+        CheckGameWin();
+    }
+
     public void GameOver()
     {
         game_over_canvas.gameObject.SetActive(true);
         Time.timeScale = 0;
+    }
+
+    private void CheckGameWin()
+    {
+        if (GameObject.FindWithTag("soldier") == null && soldiers_picked_up == 0)
+        {
+            Time.timeScale = 0;
+        }
     }
 
     public bool IncrementSoldiersPickedUp()
