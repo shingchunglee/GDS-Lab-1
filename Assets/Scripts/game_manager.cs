@@ -14,7 +14,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Text soldiers_in_helicopter_text;
 
-    // Start is called before the first frame update
+    [SerializeField]
+    private Canvas game_over_canvas;
+
     private void Start()
     {
         UpdateRescuedText();
@@ -23,6 +25,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
+        game_over_canvas.gameObject.SetActive(true);
         Time.timeScale = 0;
     }
 
