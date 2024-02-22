@@ -17,7 +17,7 @@ public class HelicopterCollisionComponent : MonoBehaviour
         }
         if (other.gameObject.CompareTag("tree"))
         {
-            Debug.Log("Collided with tree");
+            other.gameObject.GetComponent<TreeManager>().OnHitTree();
             return;
         }
         if (other.gameObject.CompareTag("hospital"))

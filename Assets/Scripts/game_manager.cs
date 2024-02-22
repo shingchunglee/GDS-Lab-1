@@ -21,6 +21,11 @@ public class GameManager : MonoBehaviour
         UpdateSoldiersInHelicopterText();
     }
 
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+    }
+
     public bool IncrementSoldiersPickedUp()
     {
         if (soldiers_picked_up >= 3)
