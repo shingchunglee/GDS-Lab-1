@@ -9,43 +9,43 @@ public class InputManager : MonoBehaviour
     private MovementComponent helicopterMovement;
 
     [SerializeField]
+    private GameManager gameManager;
+
+    [SerializeField]
     public float WAIT_TIME = 0.3f;
 
     private float timer = 0.0f;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    void Start() { }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            gameManager.Reset();
+        }
         if (timer > WAIT_TIME)
         {
-            
             timer = 0f;
-            if (Input.GetKey(KeyCode.UpArrow)) {
-                // TODO: Move heli up
+            if (Input.GetKey(KeyCode.UpArrow))
+            {
                 helicopterMovement.MoveUp();
             }
-            if (Input.GetKey(KeyCode.DownArrow)) {
-                // TODO: Move heli down
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
                 helicopterMovement.MoveDown();
             }
-            if (Input.GetKey(KeyCode.LeftArrow)) {
-                // TODO: Move heli left
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
                 helicopterMovement.MoveLeft();
             }
-            if (Input.GetKey(KeyCode.RightArrow)) {
-                // TODO: Move heli right
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
                 helicopterMovement.MoveRight();
-            }
-            if (Input.GetKeyDown(KeyCode.R)) {
-                // TODO: Reset game if possible
             }
         }
     }
