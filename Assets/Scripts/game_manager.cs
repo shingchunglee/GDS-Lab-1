@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Canvas game_over_canvas;
 
+    [SerializeField]
+    private Canvas win_canvas;
+
     private void Start()
     {
         UpdateRescuedText();
@@ -38,6 +41,7 @@ public class GameManager : MonoBehaviour
     {
         if (GameObject.FindWithTag("soldier") == null && soldiers_picked_up == 0)
         {
+            win_canvas.gameObject.SetActive(true);
             Time.timeScale = 0;
         }
     }

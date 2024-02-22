@@ -1061,6 +1061,7 @@ MonoBehaviour:
   rescued_text: {fileID: 1101767610}
   soldiers_in_helicopter_text: {fileID: 1863885418}
   game_over_canvas: {fileID: 229339749}
+  win_canvas: {fileID: 668290850}
 --- !u!114 &949532076
 MonoBehaviour:
   m_ObjectHideFlags: 0
