@@ -11,10 +11,14 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Text rescued_text;
 
+    [SerializeField]
+    private Text soldiers_in_helicopter_text;
+
     // Start is called before the first frame update
     private void Start()
     {
-        update_rescued_text();
+        UpdateRescuedText();
+        UpdateSoldiersInHelicopterText();
     }
 
     public bool IncrementSoldiersPickedUp()
@@ -24,6 +28,7 @@ public class GameManager : MonoBehaviour
             return false;
         }
         soldiers_picked_up++;
+        UpdateSoldiersInHelicopterText();
         return true;
     }
 
@@ -31,12 +36,18 @@ public class GameManager : MonoBehaviour
     {
         soldiers_saved += soldiers_picked_up;
         soldiers_picked_up = 0;
-        update_rescued_text();
+        UpdateRescuedText();
+        UpdateSoldiersInHelicopterText();
         return true;
     }
 
-    private void update_rescued_text()
+    private void UpdateRescuedText()
     {
         rescued_text.text = "Soldiers Rescued: " + soldiers_saved;
+    }
+
+    private void UpdateSoldiersInHelicopterText()
+    {
+        soldiers_in_helicopter_text.text = "Soldiers in Helicopter: " + soldiers_picked_up;
     }
 }
