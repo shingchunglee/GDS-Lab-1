@@ -33,19 +33,19 @@ public class InputManager : MonoBehaviour
             timer = 0f;
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                helicopterMovement.MoveUp();
+                helicopterMovement.ThrustForward();
             }
             if (Input.GetKey(KeyCode.DownArrow))
             {
-                helicopterMovement.MoveDown();
+                helicopterMovement.ThrustBackward();
             }
             if (Input.GetKey(KeyCode.LeftArrow))
             {
-                helicopterMovement.MoveLeft();
+                helicopterMovement.RotateLeft();
             }
             if (Input.GetKey(KeyCode.RightArrow))
             {
-                helicopterMovement.MoveRight();
+                helicopterMovement.RotateRight();
             }
         }
     }

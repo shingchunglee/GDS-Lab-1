@@ -5,31 +5,79 @@ using UnityEngine;
 public class MovementComponent : MonoBehaviour
 {
     [SerializeField]
-    private float VELOCITY;
+    private float ACCELERATION;
+
+    private float velocity;
+
+    [SerializeField]
+    private float TERMINAL_VELOCITY;
+
+    [SerializeField]
+    private float MAX_ROTATION;
 
     // Start is called before the first frame update
     void Start() { }
 
     // Update is called once per frame
-    void Update() { }
-
-    public void MoveUp()
+    void Update()
     {
-        gameObject.transform.position += new Vector3(0, VELOCITY, 0);
+        transform.position += transform.up * velocity;
+        velocity *= .98f;
+        if (Mathf.Abs(velocity) < 0.005f)
+        {
+            velocity = 0;
+        }
     }
 
-    public void MoveDown()
+    public void ThrustForward()
     {
-        gameObject.transform.position += new Vector3(0, -VELOCITY, 0);
+        if (Mathf.Abs(velocity) < TERMINAL_VELOCITY)
+        {
+            velocity = ACCELERATION * Time.deltaTime;
+        }
     }
 
-    public void MoveLeft()
+    public void ThrustBackward()
     {
-        gameObject.transform.position += new Vector3(-VELOCITY, 0, 0);
+        if (Mathf.Abs(velocity) > -TERMINAL_VELOCITY)
+        {
+            velocity = -ACCELERATION * Time.deltaTime;
+        }
     }
 
-    public void MoveRight()
+    public void RotateLeft()
     {
-        gameObject.transform.position += new Vector3(VELOCITY, 0, 0);
+        if (transform.rotation.z < MAX_ROTATION)
+        {
+            transform.Rotate(0, 0, 15);
+        }
     }
+
+    public void RotateRight()
+    {
+        if (transform.rotation.z > -MAX_ROTATION)
+        {
+            transform.Rotate(0, 0, -15);
+        }
+    }
+
+    /* public void MoveUp() */
+    /* { */
+    /*     gameObject.transform.position += new Vector3(0, velocity, 0); */
+    /* } */
+    /**/
+    /* public void MoveDown() */
+    /* { */
+    /*     gameObject.transform.position += new Vector3(0, -velocity, 0); */
+    /* } */
+    /**/
+    /* public void MoveLeft() */
+    /* { */
+    /*     gameObject.transform.position += new Vector3(-velocity, 0, 0); */
+    /* } */
+    /**/
+    /* public void MoveRight() */
+    /* { */
+    /*     gameObject.transform.position += new Vector3(velocity, 0, 0); */
+    /* } */
 }
