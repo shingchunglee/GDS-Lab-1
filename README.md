@@ -1,6 +1,5 @@
 # Mash Game
 
-
 ## ATTRIBUTIONS
 
 Pickup Sound by jalastram

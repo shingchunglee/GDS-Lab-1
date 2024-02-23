@@ -28,6 +28,10 @@ public class InputManager : MonoBehaviour
         {
             gameManager.Reset();
         }
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            gameManager.ToggleHelpMenu();
+        }
         if (timer > WAIT_TIME)
         {
             timer = 0f;
