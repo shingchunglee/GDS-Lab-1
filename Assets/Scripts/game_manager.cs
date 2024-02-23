@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     private bool game_over = false;
     private bool win = false;
 
+    private bool showHelp = false;
+
     [SerializeField]
     private GameObject helicopter;
 
@@ -23,6 +25,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private Text soldiers_in_helicopter_text;
+
+    [SerializeField]
+    private Text help_text;
 
     [SerializeField]
     private Canvas game_over_canvas;
@@ -134,5 +139,19 @@ public class GameManager : MonoBehaviour
     private void UpdateSoldiersInHelicopterText()
     {
         soldiers_in_helicopter_text.text = "Soldiers in Helicopter: " + soldiers_picked_up;
+    }
+
+    internal void ToggleHelpMenu()
+    {
+        if (showHelp == false)
+        {
+            help_text.text =
+                "Press Left and Right arrow keys to tilt, press Up and Down to move forward/backward. Don't hit the trees and rescue all soldiers to win.";
+            showHelp = true;
+        }
+        else
+        {
+            help_text.text = "Press \"H\" for help";
+        }
     }
 }
