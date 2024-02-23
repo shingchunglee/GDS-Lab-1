@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,11 +12,20 @@ public class GameManager : MonoBehaviour
 
     private bool showHelp = false;
 
+    private const int SOLDERS_TO_SPAWN = 10;
+    private const int TREES_TO_SPAWN = 5;
+
+    [SerializeField]
+    private Bounds playableAreaBounds;
+
     [SerializeField]
     private GameObject helicopter;
 
     [SerializeField]
     private GameObject soldier_prefab;
+
+    [SerializeField]
+    private GameObject tree_prefab;
 
     [SerializeField]
     private Text rescued_text;
@@ -54,6 +61,7 @@ public class GameManager : MonoBehaviour
         soldiers_saved = 0;
         ResetHelicopterPosition();
         SpawnSoldiers();
+        SpawnTrees();
         UpdateRescuedText();
         UpdateSoldiersInHelicopterText();
 
@@ -70,7 +78,60 @@ public class GameManager : MonoBehaviour
     private void SpawnSoldiers()
     {
         ClearSoldiers();
-        Instantiate(soldier_prefab);
+        int solders_spawned = 0;
+        while (solders_spawned < SOLDERS_TO_SPAWN)
+        {
+            Vector3 randomPosition = GetRandomPositionWithinBounds(playableAreaBounds);
+
+            // Check for collisions
+            if (!IsColliding(randomPosition))
+            {
+                // Spawn the object at the random position
+                _ = Instantiate(soldier_prefab, randomPosition, Quaternion.identity);
+                solders_spawned++;
+            }
+        }
+    }
+
+    private void SpawnTrees()
+    {
+        ClearTrees();
+        int trees_spawned = 0;
+        while (trees_spawned < TREES_TO_SPAWN)
+        {
+            Vector3 randomPosition = GetRandomPositionWithinBounds(playableAreaBounds);
+
+            // Check for collisions
+            if (!IsColliding(randomPosition))
+            {
+                // Spawn the object at the random position
+                _ = Instantiate(tree_prefab, randomPosition, Quaternion.identity);
+                trees_spawned++;
+            }
+        }
+    }
+
+    private void ClearTrees()
+    {
+        GameObject[] trees = GameObject.FindGameObjectsWithTag("tree");
+        foreach (GameObject tree in trees)
+        {
+            Destroy(tree);
+        }
+    }
+
+    private bool IsColliding(Vector3 position)
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(position, 0.1f); // Adjust the radius as needed
+        Debug.Log(colliders.Length > 0);
+        return colliders.Length > 0;
+    }
+
+    private Vector3 GetRandomPositionWithinBounds(Bounds bounds)
+    {
+        float randomX = UnityEngine.Random.Range(bounds.min.x, bounds.max.x);
+        float randomY = UnityEngine.Random.Range(bounds.min.y, bounds.max.y);
+        return new Vector3(randomX, randomY, 0);
     }
 
     private void ClearSoldiers()
