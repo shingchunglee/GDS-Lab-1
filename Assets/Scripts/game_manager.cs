@@ -213,6 +213,7 @@ public class GameManager : MonoBehaviour
         else
         {
             help_text.text = "Press \"H\" for help";
+            showHelp = false;
         }
     }
 }
