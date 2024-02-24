@@ -8,7 +8,11 @@ public class TreeManager : MonoBehaviour
     private GameManager gameManager;
 
     // Start is called before the first frame update
-    void Start() { }
+    void Start()
+    {
+        GameObject gameController = GameObject.FindWithTag("GameController");
+        gameManager = gameController.GetComponent<GameManager>();
+    }
 
     // Update is called once per frame
     void Update() { }
