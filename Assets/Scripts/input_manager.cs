@@ -9,6 +9,9 @@ public class InputManager : MonoBehaviour
     private MovementComponent helicopterMovement;
 
     [SerializeField]
+    private HelicopterManager helicopterManager;
+
+    [SerializeField]
     private GameManager gameManager;
 
     [SerializeField]
@@ -50,6 +53,10 @@ public class InputManager : MonoBehaviour
             if (Input.GetKey(KeyCode.RightArrow))
             {
                 helicopterMovement.RotateRight();
+            }
+            if (Input.GetKey(KeyCode.Space))
+            {
+                helicopterManager.SpawnBomb();
             }
         }
     }

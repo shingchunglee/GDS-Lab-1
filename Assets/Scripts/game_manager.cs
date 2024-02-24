@@ -83,10 +83,8 @@ public class GameManager : MonoBehaviour
         {
             Vector3 randomPosition = GetRandomPositionWithinBounds(playableAreaBounds);
 
-            // Check for collisions
             if (!IsColliding(randomPosition))
             {
-                // Spawn the object at the random position
                 _ = Instantiate(soldier_prefab, randomPosition, Quaternion.identity);
                 solders_spawned++;
             }
@@ -101,10 +99,8 @@ public class GameManager : MonoBehaviour
         {
             Vector3 randomPosition = GetRandomPositionWithinBounds(playableAreaBounds);
 
-            // Check for collisions
             if (!IsColliding(randomPosition))
             {
-                // Spawn the object at the random position
                 _ = Instantiate(tree_prefab, randomPosition, Quaternion.identity);
                 trees_spawned++;
             }
@@ -123,7 +119,6 @@ public class GameManager : MonoBehaviour
     private bool IsColliding(Vector3 position)
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(position, 0.1f); // Adjust the radius as needed
-        Debug.Log(colliders.Length > 0);
         return colliders.Length > 0;
     }
 
@@ -207,7 +202,7 @@ public class GameManager : MonoBehaviour
         if (showHelp == false)
         {
             help_text.text =
-                "Press Left and Right arrow keys to tilt, press Up and Down to move forward/backward. Don't hit the trees and rescue all soldiers to win.";
+                "Press Left and Right arrow keys to tilt, press Up and Down to move forward/backward. Press Space to drop a bomb. Rescue all soldiers to win.";
             showHelp = true;
         }
         else

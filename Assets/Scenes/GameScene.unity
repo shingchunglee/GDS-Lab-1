@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 37119976}
   - component: {fileID: 37119975}
   - component: {fileID: 37119977}
+  - component: {fileID: 37119978}
   m_Layer: 0
   m_Name: Helicopter
   m_TagString: Untagged
@@ -223,7 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adc6840933f364123bc3a18c990b5752, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ACCELERATION: 2.5
+  ACCELERATION: 2
   TERMINAL_VELOCITY: 1
   MAX_ROTATION: 0.4
 --- !u!61 &37119975
@@ -310,6 +311,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5267c1cc974d4ba9b9719f52776785e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &37119978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37119971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e86999f6ea5d4a5bb33ab65f690383f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 6568655810917407230, guid: d3dd93b61bce0415698a8a11346a4a35, type: 3}
 --- !u!1001 &99599175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -887,6 +901,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   helicopterMovement: {fileID: 37119974}
+  helicopterManager: {fileID: 37119978}
   gameManager: {fileID: 949532075}
   WAIT_TIME: 0.05
 --- !u!4 &949532074
@@ -943,6 +958,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audio_source: {fileID: 949532077}
   pick_up_sound: {fileID: 8300000, guid: 85c44ff1993354107a36d5f1b172fcea, type: 3}
+  explosion_sound: {fileID: 8300000, guid: 7e3a6d5799cb345bcb55e5f89601dc75, type: 3}
 --- !u!82 &949532077
 AudioSource:
   m_ObjectHideFlags: 0

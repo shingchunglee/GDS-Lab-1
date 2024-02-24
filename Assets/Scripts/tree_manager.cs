@@ -21,4 +21,9 @@ public class TreeManager : MonoBehaviour
     {
         gameManager.GameOver();
     }
+
+    public void Bombed()
+    {
+        Destroy(gameObject);
+    }
 }

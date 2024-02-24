@@ -27,4 +27,9 @@ public class SoldierManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void Bombed()
+    {
+        gameManager.GameOver();
+    }
 }
